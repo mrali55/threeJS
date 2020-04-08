@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="root">
+    <form id="settingsForm">
+        <label for="rainCount">Rain: </label>
+        <input class="options" type="range" id="rainCount" name="points" min="0" max="10000" value="1000"> |
+        <label for="thunderCount">Thunder: </label>
+        <input class="options" type="range" id="thunderCount" name="points" min="0" max="10" value="9"> |
+        <label for="cloudCount">Clouds: </label>
+        <input class="options" type="range" id="cloudCount" name="points" min="0" max="80" value="35">
+        <input type="submit" value="apply">
+    </form>
+</div>
+<div id="draw"></div>
+<script src="dist/main.js"></script>
+</body>
+</html>
