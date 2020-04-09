@@ -1,5 +1,6 @@
 import * as THREE from 'three';
-async function draw(options) {
+import img from '../../assets/base64Cloud';
+ function draw(options) {
     console.log("inside options: ",options)
 
     let {rainCount, cloudCount, thunderCount} = options;
@@ -37,7 +38,7 @@ async function draw(options) {
     scene.add(directionalLight);
     scene.add(rain);
 
-    await createClouds();
+     createClouds();
 
     flash.position.set(200, 300, 100);
     scene.add(flash);
@@ -50,10 +51,10 @@ async function draw(options) {
     targetElement.appendChild(renderer.domElement);
     animate();
 
-    async function createClouds() {
+     function createClouds() {
         console.log('create clouds');
         let loader = new THREE.TextureLoader();
-        let texture = await loader.load( '../assets/cloud.png' );
+        let texture = new THREE.TextureLoader().load(img); //await loader.load(require("../../assets/cloud.png") );
 
         let cloudGeo = new THREE.PlaneBufferGeometry(400, 300);
         let cloudMaterial = new THREE.MeshLambertMaterial({
