@@ -1,7 +1,10 @@
 body{
     background-color: black;
+    color: white;
 }
 
-.menu{
-    color: white;
+
+
+.footer{
+    text-align: center;
 }
