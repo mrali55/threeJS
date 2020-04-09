@@ -2,7 +2,7 @@ import draw from './three/main';
 let options={
     rainCount:1000,
     cloudCount:35,
-    thunderCount:0.90
+    thunderCount:40
 };
 
 function eventsHandler() {
@@ -15,7 +15,7 @@ function eventsHandler() {
             console.log("element.id: ", element.id)
 
             console.log("element.value: ", element.value)
-            newOptions[element.id] = element.id==="thunderCount" ?  1-(element.value*0.1) : element.value;
+            newOptions[element.id] = element.id==="thunderCount" ?  50-(element.value) : element.value;
         });
         draw(newOptions);
     });

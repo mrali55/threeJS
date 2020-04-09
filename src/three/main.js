@@ -10,6 +10,7 @@ import img from '../../assets/base64Cloud';
     let geometry, material, mesh, flash;
     let cloudsArray = [];
     let {rain, rainGeo} = createRain(rainCount);
+    let thunderFrequency=0;
 
     let ambientLight = new THREE.AmbientLight(0x555555);
     let directionalLight = new THREE.DirectionalLight('white');
@@ -123,15 +124,24 @@ import img from '../../assets/base64Cloud';
         rainGeo.verticesNeedUpdate = true;
         rain.rotation.y += 0.002;
 
-        if (Math.random() > thunderCount || flash.power > 100) {
-            if (flash.power < 100)
-                flash.position.set(
-                    Math.random() * 400,
-                    300 + Math.random() * 200,
-                    100
-                );
+        if (thunderFrequency % thunderCount === 0) {
             flash.power = 50 + Math.random() * 500;
+            flash.position.set(
+                Math.random() * 400,
+                300 + Math.random() * 200,
+                100
+            );
         }
+        else if (thunderFrequency % thunderCount === 1) {
+            flash.power = 0;
+            flash.position.set(
+                Math.random() * 400,
+                300 + Math.random() * 200,
+                100
+            );
+        }
+        thunderFrequency = thunderFrequency === thunderCount+1 ? 0 : thunderFrequency+1;
+
 
 
         requestAnimationFrame(animate);
