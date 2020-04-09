@@ -65,7 +65,6 @@ import img from '../../assets/base64Cloud';
         console.log('create clouds | cloudCount: ',cloudCount);
 
         for (let p = 0; p < cloudCount; p++) {
-            console.log("inside for p: ",p)
 
             let cloud = new THREE.Mesh(cloudGeo, cloudMaterial);
             cloud.position.set(
